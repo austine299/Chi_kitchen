@@ -12,6 +12,8 @@ import { ProductModalProvider } from "./components/ProductModalContext";
 import ProductModal from "./components/ProductModal";
 import Checkout from "./components/Checkout";
 import Portfolio from "./components/Portfolio";
+import AdminDashboard from "./components/admin/AdminDashboard";
+
 
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
               <Route path="/product" element={<Products />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
 
             <Footer />

@@ -29,6 +29,7 @@ function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
           <NavLink to="/" className={linkClasses}>Home</NavLink>
+          <NavLink to="/contact" className={linkClasses}>Contact</NavLink>
           <NavLink to="/product" className={linkClasses}>All Products</NavLink>
           <NavLink to="/portfolio" className={linkClasses}>Portfolio</NavLink>
 
@@ -53,6 +54,7 @@ function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-gray-200 px-6 py-4 flex flex-col gap-4">
           <NavLink to="/" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
+          <NavLink to="/contact" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
           <NavLink to="/product" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>All Products</NavLink>
           <NavLink to="/portfolio" className={linkClasses} onClick={() => setMobileMenuOpen(false)}>Portfolio</NavLink>
 

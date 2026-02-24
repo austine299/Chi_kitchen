@@ -1,49 +1,117 @@
-import React from 'react'
-import { FaWhatsapp, FaCopyright, FaFacebook, FaTiktok, FaInstagram, FaTwitter } from "react-icons/fa";
-import { FaSnapchat } from 'react-icons/fa6';
+import React from "react";
+import {
+  FaInstagram,
+  FaTiktok,
+  FaWhatsapp,
+  FaPhone,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
+export default function Footer() {
+  const phone = "2348135547625";
 
-function Footer() {
   return (
-    <footer id="mainfoot" className="flex flex-col gap-6 mt-16 w-full p-10">
-        <div className="flex md:flex-row flex-col justify-between w-full">
-          <div>
-            <h4 className="text-2xl font-bold">JOIN THE COMMINUTY.</h4>
-            <p className="text-xl">
-              You will Receive All the information regarding the next drops.
-            </p>
-          </div>
-          <div className="form">
-            {" "}
-            <input type="text" placeholder="Email Address" className=" text-xl font-semibold pl-6 w-[300px] h-[40px] rounded-md border-2 border-black" />
-            <button className="bg-black h-[40px] text-white pl-5 pr-5 rounded-md font-bold">
-              SUBSCRIBE{" "}
-              <i className="" ></i>
-            </button>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h4 className="text-2xl font-bold">FOLLOW US</h4>
-          <div className="flex gap-5">
-            <a href={`https://wa.me/${process.env.REACT_APP_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"><FaWhatsapp className="text-3xl" /></a>
-            <a href='https://www.instagram.com/richfitstore.ng?igsh=NG5wYTc1c2V1MHBs&utm_source=qr'><i className="text-3xl"><FaInstagram/></i></a>
-            <a href='https://www.tiktok.com/@richfitstore?_r=1&_d=emi31abiechk1f&sec_uid=MS4wLjABAAAApMHBRCaSCsNkl8fkCKJXvU3St80qBObhD94kLqy6xcWAudpQCBJKYPkPsxHxLi22&share_author_id=7447142546512200710&sharer_language=en&source=h5_m&u_code=ehimcgb62mb131&item_author_type=1&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=81CC8B1F-2D75-4966-AB1B-8B58AF375B43&user_id=7447142546512200710&sec_user_id=MS4wLjABAAAApMHBRCaSCsNkl8fkCKJXvU3St80qBObhD94kLqy6xcWAudpQCBJKYPkPsxHxLi22&social_share_type=4&ug_btm=b8727,b0&utm_campaign=client_share&share_app_id=1233'><i className="text-3xl"><FaTiktok/></i></a>
-            <a href='https://www.snapchat.com/add/richfitstore?share_id=f_SZ5DJNSTyXUZxWDlm7aw&locale=en_NG'><i className="text-3xl"><FaSnapchat/></i></a>
-            <a href="https://facebook.com/richfitstore" target="_blank" rel="noopener noreferrer"><FaFacebook className="text-3xl" /></a>
-            <a href='https://x.com/richfitstore?s=21'><i className='text-3xl'><FaTwitter/></i></a>
-          </div>
-        </div>
-        
+    <footer className="bg-black text-white mt-20">
 
+      {/* ================= MAIN FOOTER ================= */}
+      <div className="max-w-7xl mx-auto px-6 py-16 grid gap-12
+        sm:grid-cols-2
+        md:grid-cols-3
+        lg:grid-cols-4">
 
-        <div className="copyright" >
-          <p className="flex items-center text-xl">
-            <i className=""><FaCopyright/></i>
-            2025 RichFit All Rights Reserved
+        {/* BRAND */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">🍽️ CHI_KITCHEN</h2>
+          <p className="text-gray-400 text-sm leading-6">
+            Delicious homemade meals prepared fresh daily.
+            Order your favorite dishes quickly and get fast delivery
+            straight to your doorstep.
           </p>
-        </div>
-      </footer>
-  )
-}
 
-export default Footer
+          {/* WhatsApp CTA */}
+          <a
+            href={`https://wa.me/${phone}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 mt-4 bg-green-600 px-4 py-2 rounded-full text-sm hover:bg-green-700 transition"
+          >
+            <FaWhatsapp /> Order on WhatsApp
+          </a>
+        </div>
+
+        {/* QUICK LINKS */}
+        <div>
+          <h3 className="font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2 text-gray-400 text-sm">
+            <li><Link to="/" className="hover:text-white">Home</Link></li>
+            <li><Link to="/product" className="hover:text-white">Menu</Link></li>
+            <li><Link to="/cart" className="hover:text-white">Cart</Link></li>
+            <li><Link to="/checkout" className="hover:text-white">Checkout</Link></li>
+            <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+          </ul>
+        </div>
+
+        {/* CATEGORIES */}
+        <div>
+          <h3 className="font-semibold mb-4">Categories</h3>
+          <ul className="space-y-2 text-gray-400 text-sm">
+            <li>Rice</li>
+            <li>Soup</li>
+            <li>Swallow</li>
+            <li>Drinks</li>
+            <li>Salad</li>
+          </ul>
+        </div>
+
+        {/* CONTACT */}
+        <div>
+          <h3 className="font-semibold mb-4">Contact Info</h3>
+
+          <div className="space-y-3 text-gray-400 text-sm">
+
+            <div className="flex items-center gap-2">
+              <FaPhone />
+              <a href="tel:+2348135547625" className="hover:text-white">
+                +234 813 554 7625
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt />
+              Lagos, Nigeria
+            </div>
+
+            {/* Socials */}
+            <div className="flex gap-4 mt-3 text-lg">
+              <a
+                href="https://www.instagram.com/chik_ichen?igsh=aWhuZ3p3dDUzNnZx&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-pink-500"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@chi.kitchen6?_r=1&_t=ZS-948L0RmRnjZ"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-white"
+                aria-label="TikTok"
+              >
+                <FaTiktok />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= BOTTOM BAR ================= */}
+      <div className="border-t border-gray-800 text-center py-5 text-xs text-gray-500">
+        © {new Date().getFullYear()} CHI_KITCHEN. All rights reserved.
+      </div>
+    </footer>
+  );
+}
