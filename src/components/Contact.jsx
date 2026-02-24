@@ -1,9 +1,17 @@
 import React from "react";
-import { FaEnvelope, FaWhatsapp, FaPhone } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaPhone,
+  FaInstagram,
+  FaTiktok,
+} from "react-icons/fa";
 
 export default function Contact() {
   const email = "Chizobasandra107@gmail.com";
   const phone = "2348135547625"; // your WhatsApp number
+  const instagram = "https://www.instagram.com/chikitchen"; // replace with your real link
+  const tiktok = "https://www.tiktok.com/@chikitchen"; // replace with your real link
 
   return (
     <div className="min-h-screen bg-gray-100 py-20 px-6">
@@ -19,7 +27,7 @@ export default function Contact() {
         </p>
 
         {/* Contact Options */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-10">
 
           {/* Email */}
           <a
@@ -54,6 +62,30 @@ export default function Contact() {
           </a>
 
         </div>
+
+        {/* Social Links */}
+        <div className="flex justify-center gap-8 mt-6">
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-col items-center hover:text-pink-500 transition"
+          >
+            <FaInstagram className="text-4xl" />
+            <span className="text-sm mt-1">Instagram</span>
+          </a>
+
+          <a
+            href={tiktok}
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-col items-center hover:text-black transition"
+          >
+            <FaTiktok className="text-4xl" />
+            <span className="text-sm mt-1">TikTok</span>
+          </a>
+        </div>
+
       </div>
     </div>
   );

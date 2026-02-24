@@ -17,7 +17,6 @@ export default function Checkout() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const deliveryFee = 1500;
 
   /* ================= EMAIL ================= */
   const sendEmails = () => {
@@ -34,7 +33,7 @@ export default function Checkout() {
           </td>
         </tr>
       </table>
-    `
+    `,
       )
       .join("");
 
@@ -46,21 +45,21 @@ export default function Checkout() {
       deliveryNote: form.deliveryNote,
       items: itemsHTML,
       total: "Price will be discussed on WhatsApp",
-      deliveryFee: deliveryFee
+      
     };
 
     emailjs.send(
       "service_jfjaobb",
       "template_d9mu9kr",
       templateParams,
-      "GUtTtl2HIbADSrZsx"
+      "GUtTtl2HIbADSrZsx",
     );
 
     emailjs.send(
       "service_jfjaobb",
       "template_maw9ksm",
       templateParams,
-      "GUtTtl2HIbADSrZsx"
+      "GUtTtl2HIbADSrZsx",
     );
   };
 
@@ -71,9 +70,15 @@ export default function Checkout() {
 
     const itemsText = cart
       .map((item) => {
-        const imageURL = item.image.startsWith("http")
-          ? item.image
-          : `${baseURL}${item.image}`;
+        let imageURL = "";
+
+        if (item.image.startsWith("http")) {
+          imageURL = item.image;
+        } else if (item.image.startsWith("data:image")) {
+          imageURL = "📷 Image available on website";
+        } else {
+          imageURL = `${baseURL}${item.image}`;
+        }
 
         return (
           `🟢 *${item.name}*\n` +
@@ -90,12 +95,11 @@ export default function Checkout() {
       `Phone: ${form.phone}\n` +
       `Address: ${form.address}\n\n` +
       `${itemsText}\n\n` +
-      `deliveryFee: ${deliveryFee}\n\n` + 
       `Total: Price will be discussed on WhatsApp`;
 
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 
@@ -128,11 +132,36 @@ export default function Checkout() {
         <h2 className="text-2xl font-bold mb-6">Delivery Details</h2>
 
         <div className="space-y-4">
-          <input name="name" placeholder="Name" onChange={handleChange} className="w-full border p-4 rounded-xl" />
-          <input name="email" placeholder="Email" onChange={handleChange} className="w-full border p-4 rounded-xl" />
-          <input name="phone" placeholder="Phone" onChange={handleChange} className="w-full border p-4 rounded-xl" />
-          <input name="address" placeholder="Address" onChange={handleChange} className="w-full border p-4 rounded-xl" />
-          <textarea name="deliveryNote" placeholder="Note" onChange={handleChange} className="w-full border p-4 rounded-xl" />
+          <input
+            name="name"
+            placeholder="Name"
+            onChange={handleChange}
+            className="w-full border p-4 rounded-xl"
+          />
+          <input
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            className="w-full border p-4 rounded-xl"
+          />
+          <input
+            name="phone"
+            placeholder="Phone"
+            onChange={handleChange}
+            className="w-full border p-4 rounded-xl"
+          />
+          <input
+            name="address"
+            placeholder="Address"
+            onChange={handleChange}
+            className="w-full border p-4 rounded-xl"
+          />
+          <textarea
+            name="deliveryNote"
+            placeholder="Note"
+            onChange={handleChange}
+            className="w-full border p-4 rounded-xl"
+          />
         </div>
       </div>
 
@@ -141,11 +170,17 @@ export default function Checkout() {
 
         {cart.map((item, i) => (
           <div key={i} className="flex gap-4 mb-4 items-center">
-            <img src={item.image} className="w-16 h-16 rounded-lg object-cover" alt="" />
+            <img
+              src={item.image}
+              className="w-16 h-16 rounded-lg object-cover"
+              alt=""
+            />
             <div>
               <h4 className="font-semibold">{item.name}</h4>
-              <p className="text-sm">Qty: {item.qty} | {item.type}</p>
-              <p>deliveryFee {deliveryFee}</p>
+              <p className="text-sm">
+                Qty: {item.qty} | {item.type}
+              </p>
+              <p> {}</p>
             </div>
           </div>
         ))}
